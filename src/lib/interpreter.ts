@@ -8,7 +8,12 @@ export function interpret(ast: Program): void {
     function evalStatement(statement: Statement): void {
         switch (statement.type) {
             case 'print':
-                console.log(evalExpression(statement.value));
+                if (typeof process !== 'object') {
+                    document.write(evalExpression(statement.value));
+                }
+                else {
+                    console.log(evalExpression(statement.value));
+                }
                 break;
             case 'expression':
                 evalExpression(statement.value);

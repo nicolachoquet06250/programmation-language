@@ -1,0 +1,23 @@
+{
+  "name": "my-language",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:node": "vite-node src/main.ts",
+    "build": "tsc && npx esbuild src/main.ts --bundle --outfile=dist/main.js --format=cjs --platform=node",
+    "build:linux": "./scripts/build.sh",
+    "build:windows": "powershell scripts/build.ps1",
+    "preview": "vite preview",
+    "test": "vitest src/__tests__/index.test.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.10",
+    "typescript": "~5.6.2",
+    "vite": "^6.0.5",
+    "vite-node": "^3.0.4",
+    "vite-plugin-node-polyfills": "^0.23.0",
+    "vitest": "^3.0.4"
+  }
+}

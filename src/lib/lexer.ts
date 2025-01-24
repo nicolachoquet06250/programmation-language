@@ -43,6 +43,7 @@ export function lex(program: string|TemplateStringsArray): Token[] {
         const start = cmp - 1;
         while (isLetter(p[cmp]) || isDigit(p[cmp])) {
             cmp++;
+            column++;
         }
 
         const identifier = p.slice(start, cmp);

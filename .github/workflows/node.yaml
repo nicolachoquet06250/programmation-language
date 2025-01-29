@@ -18,7 +18,7 @@ jobs:
           node-version: '23'
 
       - name: Build for linux
-        run: npm run build:linux
+        run: bash ./scripts/build.sh
 
       - name: Upload linux executable
         uses: 'actions/upload-artifact@v4'

@@ -37,7 +37,7 @@ jobs:
           node-version: '23'
 
       - name: Build for windows
-        run: ./scripts/build.ps1
+        run: ./scripts/build.ps1 unsign
 
       - name: Upload windows executable
         uses: 'actions/upload-artifact@v3'

@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: 'actions/checkout@v4'
 
-      - name: Set up Go
+      - name: Set up Node
         uses: 'actions/setup-node@v4'
         with:
           node-version: '23'
@@ -23,7 +23,7 @@ jobs:
       - name: Upload linux executable
         uses: 'actions/upload-artifact@v4'
         with:
-          name: sql-interpreter
+          name: my-language
           path: ./build/my-language
 
   build_for_windows:
@@ -31,7 +31,7 @@ jobs:
     steps:
       - uses: 'actions/checkout@v4'
 
-      - name: Set up Go
+      - name: Set up Node
         uses: 'actions/setup-node@v4'
         with:
           node-version: '23'

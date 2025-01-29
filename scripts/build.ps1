@@ -1,5 +1,5 @@
 npm install;
-tsc;
+.\node_modules\.bin\tsc;
 If (-not (Test-Path build)) {
     mkdir build;
 }

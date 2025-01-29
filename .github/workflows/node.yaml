@@ -1,0 +1,46 @@
+name: Node
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build for linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: 'actions/checkout@v4'
+
+      - name: Set up Go
+        uses: 'actions/setup-node@v4'
+        with:
+          node-version: '23'
+
+      - name: Build for linux
+        run: npm run build:linux
+
+      - name: Upload linux executable
+        uses: 'actions/upload-artifact@v4'
+        with:
+          name: sql-interpreter
+          path: ./build/my-language
+
+  build for windows:
+    runs-on: windows-latest
+    steps:
+      - uses: 'actions/checkout@v4'
+
+      - name: Set up Go
+        uses: 'actions/setup-node@v4'
+        with:
+          node-version: '23'
+
+      - name: Build for windows
+        run: ./scripts/build.ps1
+
+      - name: Upload windows executable
+        uses: 'actions/upload-artifact@v3'
+        with:
+          name: my-language.exe
+          path: ./build/my-language.exe

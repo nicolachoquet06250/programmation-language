@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build for linux:
+  build_for_linux:
     runs-on: ubuntu-latest
     steps:
       - uses: 'actions/checkout@v4'
@@ -26,7 +26,7 @@ jobs:
           name: sql-interpreter
           path: ./build/my-language
 
-  build for windows:
+  build_for_windows:
     runs-on: windows-latest
     steps:
       - uses: 'actions/checkout@v4'
